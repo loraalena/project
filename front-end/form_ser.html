@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Альфа-банк</title>
+
+    <script src="jquery.js"></script>
+    <script src="jquery.maskedinput.js"></script>
+    <link rel="stylesheet" href="font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="aj.js"></script>
+    <link rel="shortcut icon" href="alff.png" type="image/png">
+
+
+</head>
+<body>
+<header>
+    <div class="logo">
+        <div class="header_logo">
+            <img src="alfa.png" alt=""/>
+        </div>
+        <div class="header_info">
+            <p>Звоните в любое время</p><span><img src="222.png">198</span>
+        </div>
+    </div>
+
+    <hr>
+</header>
+<main>
+    <div><h2>Добро пожаловать!</h2>
+        <button id="btn_1">Добавить нового клиента</button>
+        <button id="btn_2">Просмотреть список клиентов</button>
+    </div>
+    <!-- <button id="btn_3">Редактировать</button>-->
+    <script>
+        $("#btn_1").click(function () {
+
+            $("#fr").toggleClass("hid");
+            $("#fr")[0].reset();
+
+        });
+
+
+    </script>
+        <table class="hid">
+        <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Дата рождения</th>
+            <th>Пол</th>
+            <th>Серия паспорта</th>
+            <th>Номер паспорта</th>
+            <th>Кем выдан</th>
+            <th>Дата выдачи</th>
+            <th>Идент. номер</th>
+            <th>Место рождения</th>
+            <th>Город факт проживания</th>
+            <th>Адрес факт проживания</th>
+            <th>Телефон домашний</th>
+            <th>Телефон мобильный</th>
+            <th>E-mail</th>
+            <th>Город прописки</th>
+            <th>Адрес прописки</th>
+            <th>Семейное положение</th>
+            <th>Грожданство</th>
+            <th>Инвалидность</th>
+            <th>Пенсионер</th>
+            <th>Доход</th>
+            <th>Удаление</th>
+        </tr>
+        </thead>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+
+    <form id="fr" class="hid" method="post" action="/">
+        <label><input hidden id="id" name="id" type="text"/></label> <br>
+        <label> Имя<span>*</span>:<input id="name" name="name" type="text"/> </label> <br>
+        <label>Фамилия<span>*</span>:<input id="surname" name="surname" type="text"/></label> <br>
+        <label>Отчество<span>*</span>:<input id="patr" name="patr" type="text"/></label> <br>
+        <label>Дата рождения<span>*</span>:<input id="bday" name="bday" type="text"/></label> <br>
+        <p>Пол<span>*</span>:</p>
+        <label>Мужской<input id="m" type="radio" name="a" value="0"/></label>
+        <label>Женский<input id="j" type="radio" name="a" value="1"/></label> <br>
+        <label>Серия паспорта<span>*</span>:<input id="seria" name="seria" type="text"/></label> <br>
+        <label>Номер паспорта<span>*</span>:<input id="num" name="num" type="text"/></label> <br>
+        <script>
+            $(function () {
+                $("#num").mask("9999999");
+            });
+        </script>
+        <label>Кем выдан<span>*</span>:<input id="issued" name="issued" type="text"/></label> <br>
+        <label>Дата выдачи<span>*</span>:<input id="data" name="data" type="text"/></label> <br>
+        <label>Идент. номер<span>*</span>:<input id="num_id" name="num_id" type="text"/></label> <br>
+        <script>
+            $(function () {
+                $("#num_id").mask("9999999a999aa9");
+            });
+        </script>
+        <label>Место рождения<span>*</span>:<input id="place" name="place" type="text"/></label> <br>
+        <label>Город факт. проживания<span>*</span>:<select id="town" name="town">
+            <option>Минск</option>
+            <option>Могилев</option>
+            <option>Витебск</option>
+            <option>Гродно</option>
+            <option>Гомель</option>
+            <option>Брест</option>
+        </select> </label> <br>
+        <label>Адрес факт. проживания<span>*</span>: <input id="address" name="address" type="text"/> </label> <br>
+        <label>Телефон домашний: <input id="td" name="td" type="text"/></label> <br>
+        <script>
+            $(function () {
+                $("#td").mask("80(9999) 999-99-99");
+            });
+        </script>
+        <label>Телефон мобильный: <input id="tm" name="tm" type="text"/></label> <br>
+        <script>
+            $(function () {
+                $("#tm").mask("80(99) 999-99-99");
+            });
+
+        </script>
+        <label>E-mail :<input id="mail" name="mail" type="email"/> </label> <br>
+        <label>Город прописки<span>*</span>:<select id="townpr" name="townpr">
+            <option>Минск</option>
+            <option>Могилев</option>
+            <option>Витебск</option>
+            <option>Гродно</option>
+            <option>Гомель</option>
+            <option>Брест</option>
+        </select></label> <br>
+        <label>Адрес прописки<span>*</span>: <input id="addresspr" name="addresspr" type="text"/> </label> <br>
+        <label>Семейное положение<span>*</span>:<select id="fam" name="fam">
+            <option>не замужем/не женат</option>
+            <option>разведен/разведена</option>
+            <option>замужем/женат</option>
+        </select> </label> <br>
+        <label>Гражданство<span>*</span>:<select id="nation" name="nation">
+            <option>РБ</option>
+            <option>Нет гражданства РБ</option>
+        </select> </label> <br>
+        <label>Инвалидность<span>*</span>:<select id="inval" name="inval">
+            <option>Нет</option>
+            <option>Первая группа</option>
+            <option>Вторая группа</option>
+            <option>Третья группа</option>
+        </select></label> <br>
+        <p>Пенсионер<span>*</span>:</p>
+        <label>Да<input id="da" type="radio" name="b" value="0"/></label>
+        <label>Нет<input id="net" type="radio" name="b" value="1"/></label> <br>
+        <label>Ежемесячный доход:<input id="income" name="income" type="text"/> </label>рублей <br>
+        <input type="submit" id="submit" value="Отправить"/>
+
+    </form>
+
+
+    <div id="picture">
+        <ul>
+            <li><img src="9.jpg" alt="" /></li>
+            <li><img src="8.jpg" alt="" /></li>
+            <li><img src="7.jpg" alt="" /></li>
+            <li><img src="6.jpg" alt="" /></li>
+            <li><img src="5.jpg" alt="" /></li>
+        </ul>
+    </div>
+
+<div>
+    <h4>КУРСЫ ВАЛЮТ</h4>
+    <div id="kurs">
+
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div id="container">
+        <h3>Почему нас выбирают</h3>
+        <div>
+            <h5>Широкая сеть банкоматов</h5>
+            <p>Более 500 банкоматов Альфа-Банка и банков-партнеров по всей стране, а также удобные терминалы без очередей</p>
+        </div>
+        <div>
+            <h5>Банк онлайн</h5>
+            <p>Мы всегда под рукой, ведь наш интернет/мобильный банк способен выполнить множество ваших желаний всего в один клик</p>
+        </div>
+        <div>
+            <h5>Решаем ваши проблемы</h5>
+            <p>Мы способны найти выгодное для вас финансовое решение: за счет большого спектра услуг и индивидуального подхода</p>
+        </div>
+    </div>
+    <div id="foot_container">
+        <section>
+            <h5>Альфа-консультант 24/7</h5>
+            <div class="num1">
+            <span>198</span>
+            <p>Стационарный номер для физических лиц</p>
+            </div>
+            <div class="num1">
+            <span>733-33-32</span>
+            <p> МТС, Velcom, Life:)(физические лица)</p>
+            </div>
+            <div class="num1">
+            <span>7464</span>
+            <p>Мобильный номер для юридических лиц</p>
+            </div>
+        </section>
+
+    </div>
+</footer>
+</body>
+</html>
+
+
+
+{"Cur_ID":145,"Cur_ParentID":145,"Cur_Code":"840","Cur_Abbreviation":"USD","Cur_Name":"Доллар США","Cur_Name_Bel":"Долар ЗША","Cur_Name_Eng":"US Dollar","Cur_QuotName":"1 Доллар США","Cur_QuotName_Bel":"1 Долар ЗША","Cur_QuotName_Eng":"1 US Dollar","Cur_NameMulti":"Долларов США","Cur_Name_BelMulti":"Долараў ЗША","Cur_Name_EngMulti":"US Dollars","Cur_Scale":1,"Cur_Periodicity":0,"Cur_DateStart":"1991-01-01T00:00:00","Cur_DateEnd":"2050-01-01T00:00:00"},
+
